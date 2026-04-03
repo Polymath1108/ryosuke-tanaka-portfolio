@@ -35,6 +35,8 @@
     "copyright": "成 聡志. All rights reserved.",
     "github": "GitHub",
     "linkedin": "LinkedIn",
+    "facebook": "Facebook",
+    "twitter": "X / Twitter",
     "email": "メール"
   },
   "services": {
@@ -404,6 +406,8 @@
     "sendMessage": "送信",
     "linkedin": "LinkedIn",
     "github": "GitHub",
+    "facebook": "Facebook",
+    "twitter": "X / Twitter",
     "location": "所在地",
     "locationValue": "東京都、日本"
   }

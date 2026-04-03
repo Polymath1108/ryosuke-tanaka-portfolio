@@ -23,9 +23,9 @@ export function EducationSection() {
           {items.map((edu) => (
             <div
               key={edu.degree}
-              className="card-light-flow rounded-xl"
+              className="card-light-flow rounded-xl h-full flex flex-col"
             >
-              <div className="card-light-flow-inner p-6 border border-border rounded-[11px] bg-card">
+              <div className="card-light-flow-inner p-6 border border-border rounded-[11px] bg-card flex-1">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-[#84c11f]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <GraduationCap className="h-5 w-5 text-[#84c11f]" />

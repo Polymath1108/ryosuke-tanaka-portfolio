@@ -2,30 +2,45 @@
 
 import type React from "react"
 import { useState } from "react"
+import emailjs from "@emailjs/browser"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Linkedin, Github, MapPin } from "lucide-react"
+import { Mail, Linkedin, Github, Loader2, CheckCircle2, AlertCircle } from "lucide-react"
 import { useTranslations } from "next-intl"
 
 const contactItems = [
-  { key: "email" as const, icon: Mail, valueKey: "emailValue", href: "mailto:satoshinaru213@gmail.com", external: false },
-  { key: "linkedin" as const, icon: Linkedin, valueKey: "linkedinValue", href: "https://www.linkedin.com/in/naru-satoshi-2856923a0/", external: true },
-  { key: "github" as const, icon: Github, valueKey: "githubValue", href: "https://github.com/polymath1108", external: true },
-  { key: "location" as const, icon: MapPin, valueKey: "locationValue", href: null, external: false },
+  { key: "email" as const, icon: Mail, href: "mailto:satoshinaru213@gmail.com", display: "satoshinaru213@gmail.com", external: false },
+  { key: "linkedin" as const, icon: Linkedin, href: "https://www.linkedin.com/in/naru-satoshi-2856923a0/", display: "/in/naru-satoshi", external: true },
+  { key: "github" as const, icon: Github, href: "https://github.com/polymath1108", display: "@polymath1108", external: true },
 ]
+
+type Status = "idle" | "loading" | "success" | "error"
 
 export function ContactSection() {
   const t = useTranslations("contact")
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
+  const [status, setStatus] = useState<Status>("idle")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
+    setStatus("loading")
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+      )
+      setStatus("success")
+      setFormData({ name: "", email: "", message: "" })
+    } catch {
+      setStatus("error")
+    }
   }
 
   return (
@@ -86,12 +101,29 @@ export function ContactSection() {
                     required
                   />
                 </div>
+                {status === "success" && (
+                  <div className="flex items-center gap-2 text-sm text-[#84c11f] bg-[#84c11f]/10 border border-[#84c11f]/20 rounded-lg px-4 py-3">
+                    <CheckCircle2 className="h-4 w-4 flex-shrink-0" />
+                    <span>Message sent successfully! I'll get back to you soon.</span>
+                  </div>
+                )}
+                {status === "error" && (
+                  <div className="flex items-center gap-2 text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded-lg px-4 py-3">
+                    <AlertCircle className="h-4 w-4 flex-shrink-0" />
+                    <span>Something went wrong. Please try again.</span>
+                  </div>
+                )}
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-[#84c11f] hover:bg-[#6fa019] text-[#1E1F22] font-semibold text-base"
+                  disabled={status === "loading"}
+                  className="w-full bg-[#84c11f] hover:bg-[#6fa019] text-[#1E1F22] font-semibold text-base disabled:opacity-70"
                 >
-                  {t("sendMessage")}
+                  {status === "loading" ? (
+                    <><Loader2 className="h-4 w-4 animate-spin mr-2" />Sending...</>
+                  ) : (
+                    t("sendMessage")
+                  )}
                 </Button>
               </form>
             </div>
@@ -99,10 +131,7 @@ export function ContactSection() {
 
           <div className="md:col-span-2 space-y-4">
             {contactItems.map((item) => (
-              <div
-                key={item.key}
-                className="card-light-flow rounded-xl"
-              >
+              <div key={item.key} className="card-light-flow rounded-xl">
                 <div className="card-light-flow-inner p-5 bg-card border border-border rounded-[11px]">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-xl bg-[#84c11f]/10 flex items-center justify-center flex-shrink-0">
@@ -110,18 +139,14 @@ export function ContactSection() {
                     </div>
                     <div>
                       <p className="text-sm font-medium text-muted-foreground">{t(item.key)}</p>
-                      {item.href ? (
-                        <a
-                          href={item.href}
-                          target={item.external ? "_blank" : undefined}
-                          rel={item.external ? "noopener noreferrer" : undefined}
-                          className="text-[15px] text-foreground hover:text-[#84c11f] transition-colors"
-                        >
-                          {item.key === "email" ? "satoshinaru213@gmail.com" : item.key === "linkedin" ? "/in/naru-satoshi" : item.key === "github" ? "@polymath1108" : t("locationValue")}
-                        </a>
-                      ) : (
-                        <p className="text-[15px] text-foreground">{t("locationValue")}</p>
-                      )}
+                      <a
+                        href={item.href}
+                        target={item.external ? "_blank" : undefined}
+                        rel={item.external ? "noopener noreferrer" : undefined}
+                        className="text-[15px] text-foreground hover:text-[#84c11f] transition-colors"
+                      >
+                        {item.display}
+                      </a>
                     </div>
                   </div>
                 </div>
