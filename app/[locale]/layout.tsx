@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { CardLightFlowInit } from "@/components/card-light-flow-init"
 import { LocaleLang } from "@/components/locale-lang"
 import { Analytics } from "@vercel/analytics/next"
+import { getSiteUrl } from "@/lib/seo"
 import "../globals.css"
 
 export function generateStaticParams() {
@@ -24,9 +25,57 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   if (!hasLocale(routing.locales, locale)) return {}
   const t = await getTranslations({ locale, namespace: "metadata" })
+  const siteUrl = getSiteUrl()
+  const localePath = `/${locale}`
+  const canonicalUrl = `${siteUrl}${localePath}`
+
+  const languageAlternates = Object.fromEntries(
+    routing.locales.map((altLocale) => [altLocale, `${siteUrl}/${altLocale}`]),
+  )
+
   return {
     title: t("title"),
     description: t("description"),
+    metadataBase: new URL(siteUrl),
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        "x-default": `${siteUrl}/${routing.defaultLocale}`,
+        ...languageAlternates,
+      },
+    },
+    keywords: [
+      "Satoshi Naru",
+      "Satoshi Naru portfolio",
+      "Senior Full-Stack AI Engineer",
+      "AI ML LLM Engineer Tokyo",
+      "Generative AI Engineer",
+    ],
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: canonicalUrl,
+      siteName: "Satoshi Naru Portfolio",
+      type: "website",
+      locale: locale === "ja" ? "ja_JP" : "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      creator: "@satoshi_naru",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
   }
 }
 
