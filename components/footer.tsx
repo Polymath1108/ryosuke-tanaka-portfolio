@@ -1,9 +1,8 @@
-import { Github, Linkedin, Facebook, Twitter, Mail } from "lucide-react"
+import { Github, Linkedin, Twitter, Mail } from "lucide-react"
 
 const socialLinks = [
   { href: "https://github.com/polymath1108", icon: Github, label: "GitHub", external: true },
   { href: "https://www.linkedin.com/in/naru-satoshi-2856923a0/", icon: Linkedin, label: "LinkedIn", external: true },
-  { href: "https://www.facebook.com/share/1Hi3P8BHny/?mibextid=wwXIfr", icon: Facebook, label: "Facebook", external: true },
   { href: "https://x.com/satoshi_naru?s=21", icon: Twitter, label: "X / Twitter", external: true },
   { href: "mailto:satoshinaru213@gmail.com", icon: Mail, label: "Email", external: false },
 ]

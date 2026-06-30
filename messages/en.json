@@ -35,7 +35,6 @@
     "copyright": "Satoshi Naru. All rights reserved.",
     "github": "GitHub",
     "linkedin": "LinkedIn",
-    "facebook": "Facebook",
     "twitter": "X / Twitter",
     "email": "Email"
   },
@@ -406,7 +405,6 @@
     "sendMessage": "Send Message",
     "linkedin": "LinkedIn",
     "github": "GitHub",
-    "facebook": "Facebook",
     "twitter": "X / Twitter",
     "location": "Location",
     "locationValue": "Tokyo, Japan"
