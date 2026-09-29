@@ -41,7 +41,6 @@ export default async function LocaleHome({ params }: Props) {
       },
     ],
     sameAs: [
-      "https://www.linkedin.com/in/naru-satoshi-2856923a0/",
       "https://github.com/polymath1108",
       "https://x.com/satoshi_naru?s=21",
     ],

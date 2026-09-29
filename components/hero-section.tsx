@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Download, MapPin } from "lucide-react"
+import { ArrowRight, MapPin } from "lucide-react"
 import { useTranslations } from "next-intl"
 
 const statKeys = ["years", "systems", "reduction", "certs"] as const
@@ -49,17 +49,6 @@ export function HeroSection() {
               >
                 {t("viewServices")}
                 <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full border-border bg-transparent px-6 text-foreground hover:bg-secondary"
-                asChild
-              >
-                <a href="/resume.pdf" download="Ryosuke_Tanaka_Resume.pdf">
-                  <Download className="h-4 w-4" />
-                  {t("downloadResume")}
-                </a>
               </Button>
             </div>
           </div>

@@ -9,8 +9,6 @@
     "experience": "経歴",
     "skills": "スキル",
     "contact": "お問い合わせ",
-    "resume": "履歴書",
-    "downloadResume": "履歴書をダウンロード",
     "openMenu": "メニューを開く",
     "closeMenu": "メニューを閉じる"
   },
@@ -23,7 +21,6 @@
     "bio": "10 年以上、AI モデル・スケーラブルな Web アプリ・AI 駆動システムの設計・開発・運用に従事。AI エンジニアリング、フルスタック開発、クラウドネイティブアーキテクチャの豊富な経験。",
     "location": "東京都、日本",
     "viewServices": "サービスを見る",
-    "downloadResume": "履歴書をダウンロード",
     "stats": {
       "years": "年の経験",
       "systems": "本番システム",
@@ -34,8 +31,6 @@
   "footer": {
     "copyright": "田中 涼介. All rights reserved.",
     "github": "GitHub",
-    "linkedin": "LinkedIn",
-    "twitter": "X / Twitter",
     "email": "メール"
   },
   "services": {
@@ -403,9 +398,7 @@
     "emailPlaceholder": "your@email.com",
     "messagePlaceholder": "プロジェクトについてお聞かせください...",
     "sendMessage": "送信",
-    "linkedin": "LinkedIn",
     "github": "GitHub",
-    "twitter": "X / Twitter",
     "location": "所在地",
     "locationValue": "東京都、日本"
   }

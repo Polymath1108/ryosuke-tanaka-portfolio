@@ -9,8 +9,6 @@
     "experience": "Experience",
     "skills": "Skills",
     "contact": "Contact",
-    "resume": "Resume",
-    "downloadResume": "Download Resume",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
@@ -23,7 +21,6 @@
     "bio": "10+ years designing, developing, and operating AI models, scalable web applications, and AI-powered systems. Strong background in AI engineering, full-stack development, and cloud-native architecture.",
     "location": "Tokyo, Japan",
     "viewServices": "View Services",
-    "downloadResume": "Download Resume",
     "stats": {
       "years": "Years Experience",
       "systems": "Production-Grade Systems",
@@ -34,8 +31,6 @@
   "footer": {
     "copyright": "Ryosuke Tanaka. All rights reserved.",
     "github": "GitHub",
-    "linkedin": "LinkedIn",
-    "twitter": "X / Twitter",
     "email": "Email"
   },
   "services": {
@@ -403,9 +398,7 @@
     "emailPlaceholder": "your@email.com",
     "messagePlaceholder": "Tell me about your project...",
     "sendMessage": "Send Message",
-    "linkedin": "LinkedIn",
     "github": "GitHub",
-    "twitter": "X / Twitter",
     "location": "Location",
     "locationValue": "Tokyo, Japan"
   }

@@ -6,13 +6,12 @@ import emailjs from "@emailjs/browser"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Linkedin, Github, Loader2, CheckCircle2, AlertCircle } from "lucide-react"
+import { Mail, Github, Loader2, CheckCircle2, AlertCircle } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { SectionHeading } from "@/components/section-heading"
 
 const contactItems = [
-  { key: "email" as const, icon: Mail, href: "mailto:satoshinaru213@gmail.com", display: "satoshinaru213@gmail.com", external: false },
-  { key: "linkedin" as const, icon: Linkedin, href: "https://www.linkedin.com/in/naru-satoshi-2856923a0/", display: "/in/naru-satoshi", external: true },
+  { key: "email" as const, icon: Mail, href: "mailto:rich.alpha444@gmail.com", display: "rich.alpha444@gmail.com", external: false },
   { key: "github" as const, icon: Github, href: "https://github.com/polymath1108", display: "@polymath1108", external: true },
 ]
 

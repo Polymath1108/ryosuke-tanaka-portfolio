@@ -1,9 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { Download, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
 import { Link } from "@/i18n/navigation"
 
@@ -39,15 +38,6 @@ export function Navbar() {
             ))}
             <ThemeToggle />
             <LanguageSwitcher />
-            <Button
-              className="h-9 rounded-full bg-foreground px-4 text-background hover:bg-foreground/85"
-              asChild
-            >
-              <a href="/resume.pdf" download="Ryosuke_Tanaka_Resume.pdf">
-                <Download className="h-4 w-4" />
-                {t("resume")}
-              </a>
-            </Button>
           </div>
 
           <div className="flex items-center gap-2 md:hidden">
@@ -78,15 +68,6 @@ export function Navbar() {
                 {t(key)}
               </a>
             ))}
-            <Button
-              className="mt-3 w-full rounded-full bg-foreground text-background hover:bg-foreground/85"
-              asChild
-            >
-              <a href="/resume.pdf" download="Ryosuke_Tanaka_Resume.pdf">
-                <Download className="h-4 w-4" />
-                {t("downloadResume")}
-              </a>
-            </Button>
           </div>
         </div>
       )}
