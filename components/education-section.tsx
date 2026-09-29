@@ -2,6 +2,7 @@
 
 import { GraduationCap } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { SectionHeading } from "@/components/section-heading"
 
 export function EducationSection() {
   const t = useTranslations("education")
@@ -12,32 +13,24 @@ export function EducationSection() {
   }>
 
   return (
-    <section className="py-20 bg-background">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <div className="mb-10">
-          <p className="text-sm font-semibold text-[#84c11f] uppercase tracking-wider mb-2">{t("background")}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 text-balance">{t("title")}</h2>
-        </div>
+    <section className="bg-background py-24">
+      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <SectionHeading eyebrow={t("background")} title={t("title")} />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {items.map((edu) => (
-            <div
-              key={edu.degree}
-              className="card-light-flow rounded-xl h-full flex flex-col"
-            >
-              <div className="card-light-flow-inner p-6 border border-border rounded-[11px] bg-card flex-1">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#84c11f]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <GraduationCap className="h-5 w-5 text-[#84c11f]" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-foreground text-base mb-1">{edu.degree}</h3>
-                    <p className="text-[15px] text-muted-foreground">{edu.university}</p>
-                    <p className="text-sm text-muted-foreground font-mono mt-1">{edu.period}</p>
-                  </div>
+            <article key={edu.degree} className="rounded-2xl border border-border bg-card p-6">
+              <div className="flex items-start gap-4">
+                <div className="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-secondary">
+                  <GraduationCap className="h-4 w-4 text-foreground" />
+                </div>
+                <div>
+                  <h3 className="text-base font-semibold text-foreground">{edu.degree}</h3>
+                  <p className="mt-1 text-[15px] text-muted-foreground">{edu.university}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{edu.period}</p>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

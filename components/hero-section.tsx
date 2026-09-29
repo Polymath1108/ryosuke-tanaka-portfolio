@@ -18,76 +18,71 @@ export function HeroSection() {
   ]
 
   return (
-    <section className="relative flex items-center bg-surface pt-14">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10 py-16 lg:py-24">
-        <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
-          <div className="flex-shrink-0 flex flex-col items-center gap-5">
-            <div className="w-56 h-56 lg:w-72 lg:h-72 rounded-2xl border-2 border-border overflow-hidden">
-              <img
-                src="/professional-ai-engineer-headshot.jpg"
-                alt="Satoshi Naru"
-                className="w-full h-full object-cover"
-              />
+    <section className="relative bg-background pt-16">
+      <div className="mx-auto w-full max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:gap-16">
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+              <span className="text-xs font-medium tracking-wide text-muted-foreground">{t("available")}</span>
             </div>
-            <div className="flex flex-col gap-2.5 w-full">
+
+            <h1 className="font-display text-5xl leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+              {t("title")}
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-snug text-muted-foreground sm:text-xl">
+              {t("subtitleLine1")} {t("subtitleLine2")} {t("subtitleLine3")}
+            </p>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
+              {t("bio")}
+            </p>
+            <div className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
+              <MapPin className="h-4 w-4" />
+              <span>{t("location")}</span>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button
                 size="lg"
-                className="bg-[#84c11f] hover:bg-[#6fa019] text-[#1E1F22] font-semibold text-base px-6 w-full"
+                className="rounded-full bg-foreground px-6 text-background hover:bg-foreground/85"
                 onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
               >
                 {t("viewServices")}
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="h-4 w-4" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-border text-muted-foreground hover:border-[#84c11f] hover:text-[#84c11f] bg-transparent text-base px-6 w-full"
+                className="rounded-full border-border bg-transparent px-6 text-foreground hover:bg-secondary"
                 asChild
               >
-                <a href="/resume.pdf" download="Satoshi_Naru_Resume.pdf">
-                  <Download className="mr-2 h-4 w-4" />
+                <a href="/resume.pdf" download="Ryosuke_Tanaka_Resume.pdf">
+                  <Download className="h-4 w-4" />
                   {t("downloadResume")}
                 </a>
               </Button>
             </div>
           </div>
 
-          <div className="flex-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#84c11f]/10 border border-[#84c11f]/20 rounded-full mb-5">
-              <div className="w-2 h-2 bg-[#84c11f] rounded-full" />
-              <span className="text-[#84c11f] text-sm font-medium">{t("available")}</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-2 leading-[1.1]">
-              {t("title")}
-            </h1>
-            <p className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground mb-5 font-semibold leading-snug text-balance">
-              {t("subtitleLine1")}
-              <br />
-              <span className="text-[#84c11f]">{t("subtitleLine2")}</span>
-              <br />
-              {t("subtitleLine3")}
-            </p>
-
-            <p className="text-lg text-muted-foreground mb-4 leading-relaxed max-w-2xl text-pretty">
-              {t("bio")}
-            </p>
-
-            <div className="flex items-center gap-2 text-muted-foreground text-sm">
-              <MapPin className="h-4 w-4" />
-              <span>{t("location")}</span>
+          <div className="mx-auto w-full max-w-sm lg:max-w-none">
+            <div className="overflow-hidden rounded-[2rem] bg-secondary shadow-[0_20px_50px_-24px_rgba(26,26,26,0.35)]">
+              <img
+                src="/Ryosuke%20Tanaka.png"
+                alt={t("title")}
+                className="aspect-[4/5] w-full object-cover object-[center_18%]"
+              />
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-14 pt-10 border-t border-border">
+        <dl className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-4">
           {stats.map((stat) => (
-            <div key={stat.key}>
-              <p className="text-3xl font-bold text-foreground">{stat.value}</p>
-              <p className="text-sm text-muted-foreground mt-1">{tStats(stat.key)}</p>
+            <div key={stat.key} className="bg-card px-5 py-6">
+              <dt className="text-xs text-muted-foreground">{tStats(stat.key)}</dt>
+              <dd className="mt-2 font-display text-3xl tracking-tight text-foreground">{stat.value}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   )

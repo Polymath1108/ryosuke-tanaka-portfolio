@@ -9,26 +9,24 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="py-8 bg-background border-t border-border">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-sm">
-            {"© "}{new Date().getFullYear()} Satoshi Naru. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4">
-            {socialLinks.map(({ href, icon: Icon, label, external }) => (
-              <a
-                key={label}
-                href={href}
-                target={external ? "_blank" : undefined}
-                rel={external ? "noopener noreferrer" : undefined}
-                aria-label={label}
-                className="text-muted-foreground hover:text-[#84c11f] transition-colors"
-              >
-                <Icon className="h-5 w-5" />
-              </a>
-            ))}
-          </div>
+    <footer className="border-t border-border bg-background py-10">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-4 px-6 sm:flex-row lg:px-8">
+        <p className="text-sm text-muted-foreground">
+          {"© "}{new Date().getFullYear()} Ryosuke Tanaka
+        </p>
+        <div className="flex items-center gap-2">
+          {socialLinks.map(({ href, icon: Icon, label, external }) => (
+            <a
+              key={label}
+              href={href}
+              target={external ? "_blank" : undefined}
+              rel={external ? "noopener noreferrer" : undefined}
+              aria-label={label}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground/20 hover:text-foreground"
+            >
+              <Icon className="h-4 w-4" />
+            </a>
+          ))}
         </div>
       </div>
     </footer>

@@ -21,10 +21,10 @@ export default async function LocaleHome({ params }: Props) {
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Satoshi Naru",
-    alternateName: "成 聡志",
+    name: "Ryosuke Tanaka",
+    alternateName: "田中 涼介",
     url: profileUrl,
-    image: `${siteUrl}/favicon.ico`,
+    image: `${siteUrl}/Ryosuke%20Tanaka.png`,
     jobTitle: "Senior Full-Stack AI / ML / LLM Engineer",
     worksFor: {
       "@type": "Organization",
@@ -57,12 +57,12 @@ export default async function LocaleHome({ params }: Props) {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Satoshi Naru Portfolio",
+    name: "Ryosuke Tanaka Portfolio",
     url: siteUrl,
     inLanguage: locale === "ja" ? "ja-JP" : "en-US",
     about: {
       "@type": "Person",
-      name: "Satoshi Naru",
+      name: "Ryosuke Tanaka",
     },
   }
 

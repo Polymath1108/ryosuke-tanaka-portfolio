@@ -2,6 +2,7 @@
 
 import { ArrowRight, Rocket, CreditCard, Brain, Workflow, Smartphone, Server } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { SectionHeading } from "@/components/section-heading"
 
 const serviceIcons = [
   Rocket,
@@ -23,57 +24,42 @@ export function ServicesSection() {
   }>
 
   return (
-    <section id="services" className="py-20 bg-background">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <div className="mb-10">
-          <p className="text-sm font-semibold text-[#84c11f] uppercase tracking-wider mb-2">{t("whatIDo")}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 text-balance">{t("title")}</h2>
-          <p className="text-base text-muted-foreground max-w-2xl text-pretty">
-            {t("intro")}
-          </p>
-        </div>
+    <section id="services" className="bg-background py-24">
+      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <SectionHeading eyebrow={t("whatIDo")} title={t("title")} intro={t("intro")} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {items.map((service, index) => {
             const Icon = serviceIcons[index] ?? Rocket
             return (
-              <div
+              <article
                 key={service.title}
-                className="card-light-flow group rounded-xl flex flex-col"
+                className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-[0_12px_32px_-20px_rgba(26,26,26,0.35)]"
               >
-                <div className="card-light-flow-inner p-6 border border-border rounded-[11px] flex flex-col bg-card flex-1">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-[#84c11f]/10 flex items-center justify-center flex-shrink-0">
-                      <Icon className="h-5 w-5 text-[#84c11f]" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground leading-snug">{service.title}</h3>
-                      <p className="text-sm text-[#84c11f] font-medium mt-0.5">{service.subtitle}</p>
-                    </div>
-                  </div>
-
-                  <p className="text-[15px] text-muted-foreground leading-relaxed mb-4 flex-1">{service.description}</p>
-
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {service.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-2.5 py-1 text-xs bg-[var(--skill-bg)] text-[var(--skill-text)] border border-[var(--skill-border)] rounded-md font-mono leading-none"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a
-                    href={`#projects-${service.projectAnchor}`}
-                    className="inline-flex items-center text-xs font-semibold text-foreground hover:text-[#84c11f] transition-colors mt-auto"
-                  >
-                    {t("viewProjects")}
-                    <ArrowRight className="ml-1.5 h-4 w-4" />
-                  </a>
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-secondary">
+                  <Icon className="h-4 w-4 text-foreground" />
                 </div>
-              </div>
+                <h3 className="text-lg font-semibold leading-snug text-foreground">{service.title}</h3>
+                <p className="mt-1 text-sm text-brand">{service.subtitle}</p>
+                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted-foreground">{service.description}</p>
+                <div className="mt-5 flex flex-wrap gap-1.5">
+                  {service.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-[var(--skill-border)] bg-[var(--skill-bg)] px-2.5 py-1 text-xs leading-none text-[var(--skill-text)]"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href={`#projects-${service.projectAnchor}`}
+                  className="mt-5 inline-flex items-center text-sm font-medium text-foreground transition-colors hover:text-brand"
+                >
+                  {t("viewProjects")}
+                  <ArrowRight className="ml-1.5 h-4 w-4" />
+                </a>
+              </article>
             )
           })}
         </div>

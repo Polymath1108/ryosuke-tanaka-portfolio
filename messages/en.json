@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Satoshi Naru | Senior Full-Stack AI / ML / LLM Engineer",
-    "description": "Portfolio of Satoshi Naru - Senior Full-Stack AI/ML/LLM Engineer with 10+ years of experience building AI-powered systems, scalable web applications, and production-grade ML solutions."
+    "title": "Ryosuke Tanaka | Senior Full-Stack AI / ML / LLM Engineer",
+    "description": "Portfolio of Ryosuke Tanaka - Senior Full-Stack AI/ML/LLM Engineer with 10+ years of experience building AI-powered systems, scalable web applications, and production-grade ML solutions."
   },
   "nav": {
     "services": "Services",
@@ -16,7 +16,7 @@
   },
   "hero": {
     "available": "Available for projects",
-    "title": "Satoshi Naru",
+    "title": "Ryosuke Tanaka",
     "subtitleLine1": "Senior Full-Stack",
     "subtitleLine2": "AI / ML / LLM",
     "subtitleLine3": "Engineer",
@@ -32,7 +32,7 @@
     }
   },
   "footer": {
-    "copyright": "Satoshi Naru. All rights reserved.",
+    "copyright": "Ryosuke Tanaka. All rights reserved.",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "twitter": "X / Twitter",

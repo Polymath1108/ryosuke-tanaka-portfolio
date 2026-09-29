@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Linkedin, Github, Loader2, CheckCircle2, AlertCircle } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { SectionHeading } from "@/components/section-heading"
 
 const contactItems = [
   { key: "email" as const, icon: Mail, href: "mailto:satoshinaru213@gmail.com", display: "satoshinaru213@gmail.com", external: false },
@@ -43,111 +44,104 @@ export function ContactSection() {
     }
   }
 
-  return (
-    <section id="contact" className="py-20 bg-surface">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <div className="mb-10">
-          <p className="text-sm font-semibold text-[#84c11f] uppercase tracking-wider mb-2">{t("getStarted")}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 text-balance">{t("title")}</h2>
-          <p className="text-base text-muted-foreground max-w-2xl text-pretty">
-            {t("intro")}
-          </p>
-        </div>
+  const fieldClass =
+    "h-11 rounded-xl border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:border-brand focus-visible:ring-brand/20"
 
-        <div className="grid md:grid-cols-5 gap-6 items-stretch">
-          <div className="md:col-span-3 card-light-flow rounded-xl h-full flex flex-col">
-            <div className="card-light-flow-inner p-6 bg-card border border-border rounded-[11px] flex-1 min-h-0 flex flex-col">
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
-                      {t("name")}
-                    </label>
-                    <Input
-                      id="name"
-                      type="text"
-                      placeholder={t("namePlaceholder")}
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="bg-secondary border-border text-foreground placeholder:text-muted-foreground focus:border-[#84c11f] h-11"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
-                      {t("email")}
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder={t("emailPlaceholder")}
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="bg-secondary border-border text-foreground placeholder:text-muted-foreground focus:border-[#84c11f] h-11"
-                      required
-                    />
-                  </div>
-                </div>
+  return (
+    <section id="contact" className="bg-background py-24">
+      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <SectionHeading eyebrow={t("getStarted")} title={t("title")} intro={t("intro")} />
+
+        <div className="grid items-stretch gap-4 md:grid-cols-5">
+          <div className="rounded-2xl border border-border bg-card p-6 md:col-span-3">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">
-                    {t("message")}
+                  <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-foreground">
+                    {t("name")}
                   </label>
-                  <Textarea
-                    id="message"
-                    placeholder={t("messagePlaceholder")}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="bg-secondary border-border text-foreground placeholder:text-muted-foreground focus:border-[#84c11f] min-h-[140px]"
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder={t("namePlaceholder")}
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className={fieldClass}
                     required
                   />
                 </div>
-                {status === "success" && (
-                  <div className="flex items-center gap-2 text-sm text-[#84c11f] bg-[#84c11f]/10 border border-[#84c11f]/20 rounded-lg px-4 py-3">
-                    <CheckCircle2 className="h-4 w-4 flex-shrink-0" />
-                    <span>Message sent successfully! I'll get back to you soon.</span>
-                  </div>
+                <div>
+                  <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">
+                    {t("email")}
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder={t("emailPlaceholder")}
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className={fieldClass}
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-foreground">
+                  {t("message")}
+                </label>
+                <Textarea
+                  id="message"
+                  placeholder={t("messagePlaceholder")}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="min-h-[140px] rounded-xl border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:border-brand focus-visible:ring-brand/20"
+                  required
+                />
+              </div>
+              {status === "success" && (
+                <div className="flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
+                  <CheckCircle2 className="h-4 w-4 flex-shrink-0" />
+                  <span>Message sent successfully! I'll get back to you soon.</span>
+                </div>
+              )}
+              {status === "error" && (
+                <div className="flex items-center gap-2 rounded-xl border border-destructive/20 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                  <AlertCircle className="h-4 w-4 flex-shrink-0" />
+                  <span>Something went wrong. Please try again.</span>
+                </div>
+              )}
+              <Button
+                type="submit"
+                size="lg"
+                disabled={status === "loading"}
+                className="w-full rounded-full bg-foreground text-base text-background hover:bg-foreground/85 disabled:opacity-70"
+              >
+                {status === "loading" ? (
+                  <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Sending...</>
+                ) : (
+                  t("sendMessage")
                 )}
-                {status === "error" && (
-                  <div className="flex items-center gap-2 text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded-lg px-4 py-3">
-                    <AlertCircle className="h-4 w-4 flex-shrink-0" />
-                    <span>Something went wrong. Please try again.</span>
-                  </div>
-                )}
-                <Button
-                  type="submit"
-                  size="lg"
-                  disabled={status === "loading"}
-                  className="w-full bg-[#84c11f] hover:bg-[#6fa019] text-[#1E1F22] font-semibold text-base disabled:opacity-70"
-                >
-                  {status === "loading" ? (
-                    <><Loader2 className="h-4 w-4 animate-spin mr-2" />Sending...</>
-                  ) : (
-                    t("sendMessage")
-                  )}
-                </Button>
-              </form>
-            </div>
+              </Button>
+            </form>
           </div>
 
-          <div className="md:col-span-2 space-y-4">
+          <div className="space-y-4 md:col-span-2">
             {contactItems.map((item) => (
-              <div key={item.key} className="card-light-flow rounded-xl">
-                <div className="card-light-flow-inner p-5 bg-card border border-border rounded-[11px]">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#84c11f]/10 flex items-center justify-center flex-shrink-0">
-                      <item.icon className="h-5 w-5 text-[#84c11f]" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-muted-foreground">{t(item.key)}</p>
-                      <a
-                        href={item.href}
-                        target={item.external ? "_blank" : undefined}
-                        rel={item.external ? "noopener noreferrer" : undefined}
-                        className="text-[15px] text-foreground hover:text-[#84c11f] transition-colors"
-                      >
-                        {item.display}
-                      </a>
-                    </div>
+              <div key={item.key} className="rounded-2xl border border-border bg-card p-5">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-secondary">
+                    <item.icon className="h-4 w-4 text-foreground" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">{t(item.key)}</p>
+                    <a
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
+                      className="text-[15px] text-foreground transition-colors hover:text-brand"
+                    >
+                      {item.display}
+                    </a>
                   </div>
                 </div>
               </div>

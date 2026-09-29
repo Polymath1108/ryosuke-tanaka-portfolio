@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "成 聡志 | シニア フルスタック AI / ML / LLM エンジニア",
-    "description": "成 聡志のポートフォリオ - AI システム・スケーラブルな Web アプリ・本番 ML ソリューションを手がける 10 年以上の経験を持つシニア フルスタック AI/ML/LLM エンジニア。"
+    "title": "田中 涼介 | シニア フルスタック AI / ML / LLM エンジニア",
+    "description": "田中 涼介のポートフォリオ - AI システム・スケーラブルな Web アプリ・本番 ML ソリューションを手がける 10 年以上の経験を持つシニア フルスタック AI/ML/LLM エンジニア。"
   },
   "nav": {
     "services": "サービス",
@@ -16,7 +16,7 @@
   },
   "hero": {
     "available": "プロジェクト対応可能",
-    "title": "成 聡志",
+    "title": "田中 涼介",
     "subtitleLine1": "シニア フルスタック",
     "subtitleLine2": "AI / ML / LLM",
     "subtitleLine3": "エンジニア",
@@ -32,7 +32,7 @@
     }
   },
   "footer": {
-    "copyright": "成 聡志. All rights reserved.",
+    "copyright": "田中 涼介. All rights reserved.",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "twitter": "X / Twitter",

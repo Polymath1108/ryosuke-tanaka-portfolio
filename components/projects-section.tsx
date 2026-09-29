@@ -17,6 +17,7 @@ import {
 import { ExternalLink } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { PROJECT_ASSETS } from "@/lib/project-assets"
+import { SectionHeading } from "@/components/section-heading"
 
 type ProjectItem = {
   title: string
@@ -89,19 +90,13 @@ export function ProjectsSection() {
   if (!activeCategory) return null
 
   return (
-    <section id="projects" className="py-20 bg-surface">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <div className="mb-10">
-          <p className="text-sm font-semibold text-[#84c11f] uppercase tracking-wider mb-2">{t("portfolio")}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 text-balance">{t("title")}</h2>
-          <p className="text-base text-muted-foreground max-w-2xl text-pretty">
-            {t("intro")}
-          </p>
-        </div>
+    <section id="projects" className="bg-background py-24">
+      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <SectionHeading eyebrow={t("portfolio")} title={t("title")} intro={t("intro")} />
 
-        <div className="border-b border-border mb-8">
+        <div className="mb-8">
           <div
-            className="flex flex-wrap gap-0 -mb-px"
+            className="flex flex-wrap gap-2"
             role="tablist"
             aria-label={t("categoriesLabel")}
           >
@@ -114,10 +109,10 @@ export function ProjectsSection() {
                 aria-selected={activeTab === category.id}
                 aria-controls="projects-panel"
                 onClick={() => setActiveTab(category.id)}
-                className={`relative px-5 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
+                className={`rounded-full px-4 py-2 text-sm transition-colors whitespace-nowrap ${
                   activeTab === category.id
-                    ? "border-[#84c11f] text-foreground font-semibold"
-                    : "border-transparent text-muted-foreground hover:text-foreground"
+                    ? "bg-foreground font-medium text-background"
+                    : "border border-border bg-card text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {category.label}
@@ -126,7 +121,7 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        <div id="projects-panel" role="tabpanel" aria-labelledby={`projects-${activeTab}`} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div id="projects-panel" role="tabpanel" aria-labelledby={`projects-${activeTab}`} className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {activeCategory.projects.map((project) => {
             const projectItem = project as ProjectItem
             const imageList = getProjectImages(projectItem)
@@ -138,9 +133,9 @@ export function ProjectsSection() {
                 tabIndex={0}
                 onClick={() => setSelectedProject(projectItem)}
                 onKeyDown={(e) => e.key === "Enter" && setSelectedProject(projectItem)}
-                className="card-light-flow rounded-xl overflow-hidden flex flex-col flex-1 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#84c11f]/50"
+                className="flex flex-1 cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-card focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
               >
-                <div className="card-light-flow-inner flex flex-col min-w-0 rounded-[11px] border border-border bg-card overflow-hidden flex-1">
+                <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
                   <div className="h-48 overflow-hidden bg-secondary relative flex-shrink-0">
                     {projectItem.link && (
                       <a
@@ -148,7 +143,7 @@ export function ProjectsSection() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="absolute top-2 right-2 z-10 p-2 rounded-lg bg-background/90 hover:bg-background border border-border text-muted-foreground hover:text-[#84c11f] transition-colors"
+                        className="absolute top-3 right-3 z-10 rounded-full border border-border bg-background/90 p-2 text-muted-foreground transition-colors hover:text-foreground"
                         aria-label="Open project link"
                       >
                         <ExternalLink className="h-4 w-4" />
@@ -187,7 +182,7 @@ export function ProjectsSection() {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="flex-shrink-0 p-1.5 rounded-md text-muted-foreground hover:text-[#84c11f] hover:bg-[#84c11f]/10 transition-colors"
+                          className="flex-shrink-0 rounded-full p-1.5 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                           aria-label="Open project link"
                         >
                           <ExternalLink className="h-4 w-4" />
@@ -201,7 +196,7 @@ export function ProjectsSection() {
                       {project.tech.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2.5 py-1 text-xs font-medium text-muted-foreground bg-muted/80 border border-border rounded-md"
+                          className="rounded-full border border-border bg-background px-2.5 py-1 text-xs text-muted-foreground"
                         >
                           {tech}
                         </span>
@@ -226,7 +221,7 @@ export function ProjectsSection() {
                         href={selectedProject.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex p-2 rounded-lg text-muted-foreground hover:text-[#84c11f] hover:bg-[#84c11f]/10 transition-colors flex-shrink-0"
+                        className="inline-flex flex-shrink-0 rounded-full p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                         aria-label="Open project link"
                       >
                         <ExternalLink className="h-5 w-5" />
@@ -272,7 +267,7 @@ export function ProjectsSection() {
                       <ul className="space-y-1.5 text-sm text-muted-foreground">
                         {selectedProject.features.map((feature, i) => (
                           <li key={i} className="flex gap-2">
-                            <span className="text-[#84c11f] mt-0.5">•</span>
+                            <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-brand" />
                             <span>{feature}</span>
                           </li>
                         ))}
@@ -285,7 +280,7 @@ export function ProjectsSection() {
                       {selectedProject.tech.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2.5 py-1 text-xs font-medium text-muted-foreground bg-muted/80 border border-border rounded-md"
+                          className="rounded-full border border-border bg-background px-2.5 py-1 text-xs text-muted-foreground"
                         >
                           {tech}
                         </span>

@@ -6,7 +6,6 @@ import { hasLocale } from "next-intl"
 import { notFound } from "next/navigation"
 import { routing } from "@/i18n/routing"
 import { ThemeProvider } from "@/components/theme-provider"
-import { CardLightFlowInit } from "@/components/card-light-flow-init"
 import { LocaleLang } from "@/components/locale-lang"
 import { Analytics } from "@vercel/analytics/next"
 import { getSiteUrl } from "@/lib/seo"
@@ -45,8 +44,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     keywords: [
-      "Satoshi Naru",
-      "Satoshi Naru portfolio",
+      "Ryosuke Tanaka",
+      "Ryosuke Tanaka portfolio",
       "Senior Full-Stack AI Engineer",
       "AI ML LLM Engineer Tokyo",
       "Generative AI Engineer",
@@ -55,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t("title"),
       description: t("description"),
       url: canonicalUrl,
-      siteName: "Satoshi Naru Portfolio",
+      siteName: "Ryosuke Tanaka Portfolio",
       type: "website",
       locale: locale === "ja" ? "ja_JP" : "en_US",
     },
@@ -90,14 +89,13 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <ThemeProvider
       attribute="class"
-      defaultTheme="dark"
+      defaultTheme="light"
       enableSystem
       disableTransitionOnChange
     >
       <NextIntlClientProvider messages={messages}>
         <LocaleLang />
         {children}
-        <CardLightFlowInit />
       </NextIntlClientProvider>
       <Analytics />
     </ThemeProvider>

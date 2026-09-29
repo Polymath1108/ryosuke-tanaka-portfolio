@@ -4,103 +4,104 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #1E1F22;
+  --background: #f7f6f3;
+  --foreground: #1a1a1a;
   --card: #ffffff;
-  --card-foreground: #1E1F22;
+  --card-foreground: #1a1a1a;
   --popover: #ffffff;
-  --popover-foreground: #1E1F22;
-  --primary: #1E1F22;
-  --primary-foreground: #ffffff;
-  --secondary: #f5f5f5;
-  --secondary-foreground: #1E1F22;
-  --muted: #f5f5f5;
-  --muted-foreground: #6b7280;
-  --accent: #84c11f;
-  --accent-foreground: #1E1F22;
-  --destructive: #ef4444;
-  --destructive-foreground: #ef4444;
-  --border: #e5e7eb;
-  --input: #e5e7eb;
-  --ring: #84c11f;
-  --radius: 0.625rem; /* Updated from 0.5rem */
+  --popover-foreground: #1a1a1a;
+  --primary: #1a1a1a;
+  --primary-foreground: #fafaf8;
+  --secondary: #efeee9;
+  --secondary-foreground: #1a1a1a;
+  --muted: #efeee9;
+  --muted-foreground: #6b6862;
+  --accent: #efeee9;
+  --accent-foreground: #1a1a1a;
+  --destructive: #dc2626;
+  --destructive-foreground: #dc2626;
+  --border: #e6e4de;
+  --input: #e6e4de;
+  --ring: #1d4ed8;
+  --radius: 0.875rem;
 
-  --surface: #f9fafb;
-  --surface-foreground: #1E1F22;
-  --nav: rgba(255, 255, 255, 0.92);
-  --nav-border: #e5e7eb;
-  --skill-bg: #f3f4f6;
-  --skill-text: #374151;
-  --skill-border: #e5e7eb;
-  --timeline-line: #e5e7eb;
+  --brand: #1d4ed8;
+  --surface: #f7f6f3;
+  --surface-foreground: #1a1a1a;
+  --nav: rgba(247, 246, 243, 0.86);
+  --nav-border: #e6e4de;
+  --skill-bg: #f3f2ee;
+  --skill-text: #3f3d38;
+  --skill-border: #e6e4de;
+  --timeline-line: #e6e4de;
   --timeline-dot-bg: #ffffff;
 
-  /* Added from shadcn/ui default styles */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --chart-1: oklch(0.55 0.16 255);
+  --chart-2: oklch(0.62 0.08 200);
+  --chart-3: oklch(0.45 0.04 250);
+  --chart-4: oklch(0.72 0.08 80);
+  --chart-5: oklch(0.68 0.1 40);
+  --sidebar: oklch(0.985 0.004 90);
+  --sidebar-foreground: oklch(0.18 0 0);
+  --sidebar-primary: oklch(0.18 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-accent: oklch(0.96 0.004 90);
+  --sidebar-accent-foreground: oklch(0.18 0 0);
+  --sidebar-border: oklch(0.91 0.006 90);
+  --sidebar-ring: oklch(0.55 0.16 255);
 }
 
 .dark {
-  --background: #111214;
-  --foreground: #f0f0f0;
-  --card: #1a1b1e;
-  --card-foreground: #f0f0f0;
-  --popover: #1a1b1e;
-  --popover-foreground: #f0f0f0;
-  --primary: #f0f0f0;
-  --primary-foreground: #1E1F22;
-  --secondary: #2a2b2e;
-  --secondary-foreground: #f0f0f0;
-  --muted: #2a2b2e;
-  --muted-foreground: #9ca3af;
-  --accent: #84c11f;
-  --accent-foreground: #1E1F22;
-  --destructive: #dc2626;
-  --destructive-foreground: #fca5a5;
-  --border: #2e2f33;
-  --input: #2e2f33;
-  --ring: #84c11f;
+  --background: #0e0e0e;
+  --foreground: #f5f4f1;
+  --card: #171717;
+  --card-foreground: #f5f4f1;
+  --popover: #171717;
+  --popover-foreground: #f5f4f1;
+  --primary: #f5f4f1;
+  --primary-foreground: #141414;
+  --secondary: #242424;
+  --secondary-foreground: #f5f4f1;
+  --muted: #242424;
+  --muted-foreground: #a3a09a;
+  --accent: #242424;
+  --accent-foreground: #f5f4f1;
+  --destructive: #ef4444;
+  --destructive-foreground: #fecaca;
+  --border: #2a2a2a;
+  --input: #2a2a2a;
+  --ring: #93c5fd;
 
-  --surface: #1E1F22;
-  --surface-foreground: #f0f0f0;
-  --nav: rgba(17, 18, 20, 0.92);
-  --nav-border: #2e2f33;
-  --skill-bg: rgba(132, 193, 31, 0.08);
-  --skill-text: #d1d5db;
-  --skill-border: rgba(255, 255, 255, 0.08);
-  --timeline-line: #2e2f33;
-  --timeline-dot-bg: #1a1b1e;
+  --brand: #93c5fd;
+  --surface: #0e0e0e;
+  --surface-foreground: #f5f4f1;
+  --nav: rgba(14, 14, 14, 0.86);
+  --nav-border: #2a2a2a;
+  --skill-bg: #1f1f1f;
+  --skill-text: #d6d3cd;
+  --skill-border: #2a2a2a;
+  --timeline-line: #2a2a2a;
+  --timeline-dot-bg: #171717;
 
-  /* Added from shadcn/ui default styles */
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.7 0.12 255);
+  --chart-2: oklch(0.72 0.08 200);
+  --chart-3: oklch(0.78 0.06 80);
+  --chart-4: oklch(0.68 0.1 300);
+  --chart-5: oklch(0.7 0.1 30);
+  --sidebar: oklch(0.16 0 0);
+  --sidebar-foreground: oklch(0.96 0 0);
+  --sidebar-primary: oklch(0.7 0.12 255);
+  --sidebar-primary-foreground: oklch(0.16 0 0);
+  --sidebar-accent: oklch(0.22 0 0);
+  --sidebar-accent-foreground: oklch(0.96 0 0);
+  --sidebar-border: oklch(0.26 0 0);
+  --sidebar-ring: oklch(0.7 0.12 255);
 }
 
 @theme inline {
-  --font-sans: "Inter", "Inter Fallback";
-  --font-mono: "JetBrains Mono", "JetBrains Mono Fallback";
+  --font-sans: var(--font-manrope), "Hiragino Sans", "Yu Gothic", "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument), "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  --font-mono: "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -120,14 +121,13 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-brand: var(--brand);
   --color-surface: var(--surface);
   --color-surface-foreground: var(--surface-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-
-  /* Added from shadcn/ui default styles */
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -154,88 +154,4 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-/* Card light-flow: normal border by default; on hover = green border + rotating light spots */
-@keyframes card-light-flow {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.card-light-flow {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-xl);
-  background: var(--card);
-}
-
-.card-light-flow::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;
-  box-sizing: border-box;
-  transform-origin: center center;
-  /* Two wide spots 180° apart – visible along top, right, bottom, left as they rotate */
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 300deg,
-    rgba(132, 193, 31, 0.4) 308deg,
-    rgba(132, 193, 31, 0.8) 318deg,
-    var(--accent) 328deg,
-    var(--accent) 32deg,
-    rgba(132, 193, 31, 0.8) 42deg,
-    rgba(132, 193, 31, 0.4) 52deg,
-    transparent 60deg,
-    transparent 120deg,
-    rgba(132, 193, 31, 0.4) 128deg,
-    rgba(132, 193, 31, 0.8) 138deg,
-    var(--accent) 148deg,
-    var(--accent) 212deg,
-    rgba(132, 193, 31, 0.8) 222deg,
-    rgba(132, 193, 31, 0.4) 232deg,
-    transparent 240deg,
-    transparent 300deg
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  z-index: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-/* Mouse: class stays until pointer actually leaves card. Keyboard: focus-within */
-/* TEMPORARILY HIDDEN: uncomment the block below to re-enable light spots */
-/*
-.card-light-flow.is-light-flow-active::before,
-.card-light-flow:focus-within::before {
-  opacity: 1;
-  animation: card-light-flow 6s linear infinite;
-}
-*/
-.card-light-flow.is-light-flow-active::before,
-.card-light-flow:focus-within::before {
-  opacity: 0;
-  animation: none;
-}
-
-.card-light-flow-inner {
-  position: relative;
-  z-index: 1;
-  margin: 2px;
-  border-radius: calc(var(--radius-xl) - 2px);
-  transition: border-color 0.2s ease;
-}
-
-.card-light-flow.is-light-flow-active .card-light-flow-inner,
-.card-light-flow:focus-within .card-light-flow-inner {
-  border-color: rgba(132, 193, 31, 0.55);
 }
